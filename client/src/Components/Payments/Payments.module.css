@@ -1,0 +1,40 @@
+@import url('https://fonts.googleapis.com/css2?family=Caveat+Brush&display=swap');
+
+body {
+    background-color: #492975;
+}
+
+.payments {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 100vh;
+    gap: 4rem;
+}
+
+.hi {
+    font-size: 8rem;
+    margin: 0;
+    color: #FFC700;
+}
+
+.profile {
+    border-radius: 999px;
+}
+
+.scan-qr {
+    color: #eeeeee;
+}
+
+.pay-pi {
+    background-color: #FFC700;
+    border: none;
+    outline: none;
+    padding: 1rem 3rem;
+    color: #1e1e1e;
+    font-size: 2rem;
+    border-radius: 1rem;
+    text-decoration: none;
+    font-weight: bolder;
+    margin: 0;
+}

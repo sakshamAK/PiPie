@@ -1,23 +1,24 @@
-import axios from 'axios';
 import { useAuth } from '../../contexts/AuthContext';
+import style from "./UserAuth.module.css"
+import { Link } from 'react-router-dom';
+import { useState } from 'react';
 
 export const UserAuth = () => {
-    const { user, signin, payment } = useAuth();
-
-    // const signin = async () => {
-    //     try {
-    //         const res = await axios.post("http://localhost:3312/", {ASD:"asdasd"})
-    //         console.log(res);
-    //     } catch (error) {
-    //         console.error(error)
-    //     }
-    // }
-
+    const { user, signin } = useAuth();
+    const [display, setDisplay] = useState('none');
+    const getUser = () => {
+        setDisplay('block');
+        signin();
+    }
+    
     return (
-        <>
-            <div>@{user}</div>
-            <button onClick={() => signin()}>signin</button>
-            <button onClick={() => payment()}>payment</button>
-        </>
+        <div className={`${style["homepage"]}`}>
+            <img src="../assets/logo.png" alt="pipie logo" />
+            <div>
+                <Link to={`${user && "/payment"}`} className={`${style["signin"]}`} onClick={() => getUser()}>{ user ? "Proceed" : "Sign in" }</Link>
+                <p className={`${style["username"]}`} style = {{display}}>{ user ? <>Signed in as: <b>{user}</b></> : `Loading...`}</p>
+            </div>
+
+        </div>
     )
 }
