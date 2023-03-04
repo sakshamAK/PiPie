@@ -12,7 +12,7 @@ const config = { headers: { 'Authorization': `Key ${apiKey}`, 'Access-Control-Al
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }))
 app.use(cors({
-    origin: ["http://localhost:3314","https://247a-2401-4900-5c93-4044-410a-249a-df4f-8036.in.ngrok.io"],
+    origin: ["http://localhost:3314","https://pi-pie.vercel.app"],
     credentials: true
 }));
 
