@@ -1,0 +1,17 @@
+@import url('https://fonts.googleapis.com/css2?family=Caveat+Brush&display=swap');
+
+.errorpage {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    overflow: hidden;
+}
+
+.errorpage h1 {
+    color: #FF9A00; 
+    text-align: center;
+    font-family: 'Caveat Brush', cursive;
+    padding: 0 2rem;
+}
