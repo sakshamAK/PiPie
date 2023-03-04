@@ -12,7 +12,7 @@ const config = { headers: { 'Authorization': `Key ${apiKey}`, 'Access-Control-Al
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }))
 app.use(cors({
-    origin: "http://localhost:3314",
+    origin: ["http://localhost:3314","https://pi-pie.vercel.app"],
     credentials: true
 }));
 
@@ -22,10 +22,13 @@ app.post('/payments/approve', async (req, res) => {
         const paymentId = req.body.paymentId.toString();
         
         const resFromPi = await axiosClient.post(`/v2/payments/${paymentId}/approve`, {}, config)
+        res.send(resFromPi)
         console.log(resFromPi);
         
     } catch (error) {
-        console.log(error)
+        console.log("asdasdas", error.message)
+        res.send(error.message)
+        // console.log(error);/
     }
 })
 

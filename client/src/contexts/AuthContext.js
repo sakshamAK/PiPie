@@ -8,6 +8,7 @@ const useAuth = () => useContext(AuthContext);
 
 const AuthProvider = ({ children }) => {
     const [user, setUser] = useState('');
+    const [logs, setLogs] = useState('logs');
 
     let Userid = '';
     const backendURL = "http://localhost:3312"
@@ -63,13 +64,16 @@ const AuthProvider = ({ children }) => {
         //-------------------------------------------------INITIATE USER PAYMENT------------------------------------------------//
         
         await Pi.createPayment(paymentData, callbacks); 
-
+        
+        
         //------------------------------------------PAYMENT PROCESS FUNCTIONS--------------------------------------------//
-
-
+        
+        
         async function onReadyForServerApproval(paymentId) {
             console.log("onReadyForServerApproval", paymentId);
-            axiosClient.post('/payments/approve', { paymentId }, config);
+            const res = await axiosClient.post('/payments/approve', { paymentId }, config);
+            setLogs(res.data)
+            console.log(res);
         }
 
         function onReadyForServerCompletion(paymentId, txid) {
@@ -90,7 +94,7 @@ const AuthProvider = ({ children }) => {
         }
     }
     return (
-        <AuthContext.Provider value={{ user, signin, Userid, payment }}>
+        <AuthContext.Provider value={{ user, signin, Userid, payment, logs }}>
             {children}
         </AuthContext.Provider>
     )

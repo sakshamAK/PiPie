@@ -2,6 +2,7 @@
 
 body {
     background-color: #492975;
+    overflow: scroll;
 }
 
 .payments {
