@@ -12,7 +12,7 @@ const AuthProvider = ({ children }) => {
     const [sWallet, setSWallet] = useState("");
 
     let Userid = '';
-    const backendURL = "http://localhost:3312"
+    const backendURL = "54.254.162.138"
     const Pi = window.Pi;
     const scopes = ['username', 'payments', 'wallet_address'];
     let Userid4 = '';
