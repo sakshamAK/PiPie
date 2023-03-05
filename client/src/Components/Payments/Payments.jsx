@@ -1,10 +1,8 @@
 import style from "./Payments.module.css"
 import QRCode from "react-qr-code"
-import { useAuth } from "../../contexts/AuthContext"
 import { Link } from "react-router-dom"
 
 export const Payments = () => {
-    const { payment, logs } = useAuth()
     return (
         <div className={`${style["payments"]}`}>
             <h1 className={`${style["hi"]}`}>πi</h1>
