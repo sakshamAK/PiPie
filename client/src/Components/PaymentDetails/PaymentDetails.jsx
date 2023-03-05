@@ -11,11 +11,11 @@ export const PaymentDetails = () => {
     <div className={`${style["payments"]}`}>
       <h1 className={`${style["hi"]}`}>πi</h1>
       <div className={`${style["input-field"]}`}>
-        <label htmlFor="WalletSeed">Private Wallet Seed</label>
-        <input id="WalletSeed" onChange = {e => setWlSd(e.target.value)} type="text" placeholder="a45scx5co56we4aslknr76po5bva..." />
+        <label htmlFor="WalletSeed">Pay to: </label>
+        <input id="WalletSeed" onChange = {e => setWlSd(e.target.value)} type="text" placeholder="Pay to" />
       </div>
       <div className={`${style["input-field"]}`}>
-        <label htmlFor="WalletSeed">Amount</label>
+        <label htmlFor="WalletSeed">Amount: </label>
         <input id="WalletSeed" onChange = {e => setAmt(e.target.value)} type="number" placeholder="0" />
       </div>
       <button onClick={() => payment(amt, wlSeed)} className={`${style["pay-pi"]}`}>Pay π</button>
