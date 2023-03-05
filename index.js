@@ -27,7 +27,7 @@ app.post('/payments/approve', async (req, res) => {
         console.log(resFromPi);
         
     } catch (error) {
-        console.log("asdasdas", error.message)
+        console.log(error.message)
         res.send(error.message)
     }
 })
