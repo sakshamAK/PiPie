@@ -4,64 +4,18 @@ body {
     background-color: #492975;
 }
 
-.payments {
+.scan-qr {
     display: flex;
     flex-direction: column;
-    align-items: center;
     height: 100vh;
     gap: 2rem;
     padding: 0 2rem;
+    text-align: center;
+    color: white;
 }
 
 .hi {
     font-size: 8rem;
     margin: 0;
     color: #FFC700;
-}
-
-.profile {
-    border-radius: 999px;
-}
-
-.scan-qr {
-    color: #eeeeee;
-}
-
-.pay-pi {
-    background-color: #FFC700;
-    border: none;
-    outline: none;
-    padding: 1rem 3rem;
-    color: #1e1e1e;
-    font-size: 2rem;
-    border-radius: 1rem;
-    text-decoration: none;
-    font-weight: bolder;
-    font-family: inherit;
-}
-
-.input-field {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    width: 100%;
-}
-
-.input-field input {
-    font-size: 1.3rem;
-    padding: 0.5rem 1rem;
-    width: 100%;
-    border-radius: 0.5rem;
-    outline: none;
-    border: none;
-    margin: 0.3rem;
-    box-sizing: border-box;
-}
-
-.input-field label {
-    color: white;
-    font-family: "Caveat Brush", cursive;
-    font-size: 1.5rem;
-    align-self: flex-start;
-    width: 100%;
 }

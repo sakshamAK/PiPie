@@ -9,6 +9,7 @@ const useAuth = () => useContext(AuthContext);
 const AuthProvider = ({ children }) => {
     const [user, setUser] = useState('');
     const [logs, setLogs] = useState('logs');
+    const [sWallet, setSWallet] = useState("");
 
     let Userid = '';
     const backendURL = "http://localhost:3312"
@@ -96,7 +97,7 @@ const AuthProvider = ({ children }) => {
         }
     }
     return (
-        <AuthContext.Provider value={{ user, signin, Userid, payment, logs }}>
+        <AuthContext.Provider value={{ user, signin, Userid, payment, logs, setSWallet, sWallet }}>
             {children}
         </AuthContext.Provider>
     )

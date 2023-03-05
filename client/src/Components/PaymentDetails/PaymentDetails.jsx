@@ -1,10 +1,9 @@
 import style from "./PaymentDetails.module.css"
-import QRCode from "react-qr-code"
 import { useAuth } from "../../contexts/AuthContext"
 import { useState } from "react"
 
 export const PaymentDetails = () => {
-  const { payment } = useAuth()
+  const { payment, sWallet, setSWallet } = useAuth()
   const [amt, setAmt] = useState(0);
   const [wlSeed, setWlSd] = useState(0);
   return (
@@ -12,7 +11,7 @@ export const PaymentDetails = () => {
       <h1 className={`${style["hi"]}`}>πi</h1>
       <div className={`${style["input-field"]}`}>
         <label htmlFor="WalletSeed">Pay to: </label>
-        <input id="WalletSeed" onChange = {e => setWlSd(e.target.value)} type="text" placeholder="Pay to" />
+        <input id="WalletSeed" onChange = {e => {setWlSd(e.target.value); setSWallet(e.target.value)}} type="text" placeholder="Pay to" value = {sWallet} />
       </div>
       <div className={`${style["input-field"]}`}>
         <label htmlFor="WalletSeed">Amount: </label>
