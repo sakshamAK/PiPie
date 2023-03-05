@@ -16,9 +16,7 @@ export const Payments = () => {
                     value="SCKRGHMJIJCHS3ODDOH2O7MYGARVBUB5YBV3HPLC2BPAMZI6TIBKFNS4" />
                 <h4 className={`${style["scan-qr"]}`}>Scan this QR to recieve payments</h4>
             </div>
-            {/* <h1>{logs}</h1> */}
-            {/* <button onClick={() => payment()} className={`${style["pay-pi"]}`}>Pay Using Pi</button> */}
-            <Link to="/details" className={`${style["pay-pi"]}`}>Pay Using Pi</Link>
+            <Link to="/scan" className={`${style["pay-pi"]}`}>Pay Using Pi</Link>
         </div>
     )
 }

@@ -1,32 +1,30 @@
 import style from "./ScanQr.module.css"
-import { useAuth } from "../../contexts/AuthContext"
 import { QrReader } from 'react-qr-reader';
 import { useState } from "react";
+import { Link } from "react-router-dom";
 
 
 export const ScanQr = () => {
-  const [result, setResult] = useState('');
-
-  const handleScan = (data) => {
-    if (data) {
-      setResult(data);
-    }
-  }
-
-  const handleError = (err) => {
-    console.error(err);
-  }
+  const [data, setData] = useState('');
   return (
     <div className={`${style["payments"]}`}>
-      <h1 className={`${style["hi"]}`}>hello</h1>
-      <div style={{ width: '100%', height: '100%', border: "15px solid white", backgroundColor: "black" }}>
+      <h1 className={`${style["hi"]}`}>πi</h1>
+      <div style={{ width: '100%', height: '50%', border: "15px solid white", backgroundColor: "black" }}>
       <QrReader
-        delay={300}
-        onError={handleError}
-        onScan={handleScan}
+        onResult={(result, error) => {
+          if (!!result) {
+            setData(result?.text);
+          }
+
+          if (!!error) {
+            console.info(error);
+          }
+        }}
+        style={{ width: '100%' }}
       />
       </div>
-      <p>{result}</p>
+      <p>{data}</p>
+      <h3><Link to = "/details" style = {{color: "white"}}>Or enter details manually</Link></h3>
     </div>
   )
 }

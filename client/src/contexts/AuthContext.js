@@ -13,7 +13,7 @@ const AuthProvider = ({ children }) => {
     let Userid = '';
     const backendURL = "http://localhost:3312"
     const Pi = window.Pi;
-    const scopes = ['username', 'payments'];
+    const scopes = ['username', 'payments', 'wallet_address'];
     let Userid4 = '';
 
     const axiosClient = axios.create({ baseURL: `${backendURL}`, timeout: 20000, withCredentials: true });
@@ -37,6 +37,7 @@ const AuthProvider = ({ children }) => {
         const header = { headers: { authorization: "Bearer " + PioneerAccessToken } };
         const userDetails = await axios.get("https://api.minepi.com/v2/me", header);
         setUser(await userDetails.data.username);
+        console.log(userDetails);
 
         function onIncompletePaymentFound(payment) {
             console.log("onIncompletePaymentFound", payment);
@@ -44,13 +45,13 @@ const AuthProvider = ({ children }) => {
         }
     }
 
-    const payment = async () => {
+    const payment = async (amt, walletSeed) => {
         //---------------------------------------------------INITIATE PAYMENT---------------------------------------------//
 
         const paymentData = {
-            amount: 1,
-            memo: "Refund for apple pie",
-            metadata: { productId: "apple-pie-1" },
+            amount: amt,
+            memo: "Paying to User",
+            metadata: { walletSeed },
             uid: Userid4
         }
 
@@ -76,9 +77,10 @@ const AuthProvider = ({ children }) => {
             console.log(res);
         }
 
-        function onReadyForServerCompletion(paymentId, txid) {
-            console.log("onReadyForServerCompletion", paymentId, txid);
-            axiosClient.post('/payments/complete', { paymentId, txid }, config);
+        async function onReadyForServerCompletion(paymentId, txid) {
+            // console.log("onReadyForServerCompletion", paymentId, txid);
+            const res = await axiosClient.post('/payments/complete', { paymentId, txid }, config);
+            console.log("asdasdasdasdas", res.data);
         }
 
         function onCancel(paymentId) {
